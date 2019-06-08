@@ -1,5 +1,5 @@
 export default (() => {
-  if (!global || !global._babelPolyfill) {
-    require('babel-polyfill');
-  }
+	if (!global || !global._babelPolyfill) { // eslint-disable-line
+		require('babel-polyfill'); // eslint-disable-line global-require
+	}
 })();

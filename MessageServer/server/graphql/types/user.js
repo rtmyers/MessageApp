@@ -1,19 +1,41 @@
-const GraphQLObjectType = require('graphql').GraphQLObjectType;
-const GraphQLNonNull = require('graphql').GraphQLNonNull;
-const GraphQLID = require('graphql').GraphQLID;
-const GraphQLString = require('graphql').GraphQLString;
+import {
+	GraphQLObjectType,
+	GraphQLNonNull,
+	GraphQLID,
+	GraphQLString
+} from 'graphql';
+
+import { ApolloServer, gql } from 'apollo-server-express';
 
 // User Type
-exports.userType = new GraphQLObjectType({
-  name: 'user',
-  fields: () => {
-    return {
-      id: {
-        type: new GraphQLNonNull(GraphQLID)
-      },
-      name: {
-        type: GraphQLString
-      }
-    }
-  }
+/*
+const userType = new GraphQLObjectType({
+	name: 'User',
+	fields: () => ({
+		id: {
+			type: new GraphQLNonNull(GraphQLID)
+		},
+		name: {
+			type: GraphQLString
+		}
+	})
 });
+
+const typeDefs = { userType };
+*/
+
+const typeDefs = 'type User {'
+    + 'id: Int!'
+    + 'name: String'
+  + '}'
+	+ 'type logInUser {'
+	+ 'id: Int!'
+	+ 'name: String!'
+	+ 'login(id: Int): User } '
+  // this schema allows the following mutation: +
+  + 'type Mutation {'
+    + 'updateUser ('
+      + 'id: Int!'
+    + '): User }';
+
+export default typeDefs;

@@ -4,19 +4,32 @@ import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 // import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = {
 	devtool: 'inline-source-map',
 	entry: [
-		path.join(__dirname, './../../server.js')
+		path.join(__dirname, './app.js')
 	],
 	target: 'node',
 	externals: nodeExternals(),
 	mode: 'development',
+	optimization: {
+		minimizer: [
+			new TerserPlugin({
+				terserOptions: {
+					output: {
+						comments: false,
+					},
+				},
+			})
+		],
+	},
 	module: {
 		rules: [
 			{
 				include: [
-					path.join(__dirname, './../../server/')
+					path.join(__dirname, './server/')
 				],
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,

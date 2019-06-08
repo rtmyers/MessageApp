@@ -1,0 +1,154 @@
+Arguments: 
+  /Users/robertmyers/.nvm/versions/node/v11.9.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js install
+
+PATH: 
+  /usr/local/opt/libxml2/bin:/Users/robertmyers/.nvm/versions/node/v11.9.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/libxml2/bin:/Users/robertmyers/.nvm/versions/node/v11.9.0/bin:/opt/gradle/gradle-5.2.1/bin:/Users/robertmyers/Library/Android/sdk/emulator:/Users/robertmyers/Library/Android/sdk/tools:/Users/robertmyers/Library/Android/sdk/platform-tools:/Users/robertmyers/Library/Android/sdk/tools/bin:/usr/local/mongodb/bin:/opt/gradle/gradle-5.2.1/bin:/Users/robertmyers/Library/Android/sdk/emulator:/Users/robertmyers/Library/Android/sdk/tools:/Users/robertmyers/Library/Android/sdk/platform-tools:/Users/robertmyers/Library/Android/sdk/tools/bin:/usr/local/mongodb/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  11.9.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@babel%2fpreset-react-hmre: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:66255:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:129397:22)
+      at Request.emit (events.js:197:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:130369:10)
+      at Request.emit (events.js:197:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:285:13)
+      at IncomingMessage.emit (events.js:202:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at processTicksAndRejections (internal/process/next_tick.js:76:17)
+
+npm manifest: 
+  {
+    "name": "MessageServer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "watch": "webpack --watch",
+      "dev": "webpack-dev-server --env.dev",
+      "build": "webpack --config webpack.server.config",
+      "build:server": "BABEL_ENV=production webpack --config=config/webpack.server.js --env.NODE_ENV=production",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "NODE_ENV=dev nodemon app.js --exec babel-node"
+    },
+    "eslintConfig": {
+      "extends": "airbnb-base",
+      "parser": "babel-eslint",
+      "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+      },
+      "rules": {
+        "indent": [
+          2,
+          "tab",
+          {
+            "SwitchCase": 1,
+            "VariableDeclarator": 1
+          }
+        ],
+        "no-tabs": 0,
+        "brace-style": [
+          "error",
+          "stroustrup"
+        ],
+        "comma-dangle": "off",
+        "no-unused-vars": "warn",
+        "react/jsx-filename-extension": "off"
+      }
+    },
+    "dependencies": {
+      "@babel/polyfill": "7.2.5",
+      "@babel/runtime": "7.3.4",
+      "bcrypt": "3.0.4",
+      "body-parser": "1.19.0",
+      "cookie-parser": "1.4.4",
+      "cors": "2.8.5",
+      "dotenv": "7.0.0",
+      "express": "4.16.4",
+      "express-graphql": "0.7.1",
+      "express-session": "1.15.6",
+      "graphql": "14.1.1",
+      "mongoose": "5.4.15",
+      "morgan": "1.9.1",
+      "passport": "0.4.0",
+      "passport-auth0": "1.1.0",
+      "uuid": "3.3.2"
+    },
+    "devDependencies": {
+      "@babel/cli": "7.2.3",
+      "@babel/core": "7.3.4",
+      "@babel/node": "^7.0.0",
+      "@babel/plugin-proposal-class-properties": "^7.0.0",
+      "@babel/plugin-proposal-decorators": "^7.0.0",
+      "@babel/plugin-proposal-do-expressions": "^7.0.0",
+      "@babel/plugin-proposal-export-default-from": "^7.0.0",
+      "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+      "@babel/plugin-proposal-function-bind": "^7.0.0",
+      "@babel/plugin-proposal-function-sent": "^7.0.0",
+      "@babel/plugin-proposal-json-strings": "^7.0.0",
+      "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+      "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+      "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+      "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+      "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+      "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+      "@babel/plugin-syntax-dynamic-import": "7.2.0",
+      "@babel/plugin-syntax-import-meta": "^7.0.0",
+      "@babel/plugin-transform-runtime": "7.3.4",
+      "@babel/preset-env": "7.3.4",
+      "@babel/preset-es2015": "7.0.0-beta.53",
+      "@babel/preset-react": "7.0.0",
+      "@babel/preset-react-hmre": "1.1.1",
+      "@babel/preset-stage-0": "7.0.0",
+      "babel-loader": "8.0.5",
+      "babel-plugin-transform-runtime": "6.23.0",
+      "babel-polyfill": "6.26.0",
+      "babel-preset-react-hmre": "1.1.1",
+      "core-js": "2.6.5",
+      "eslint": "5.15.1",
+      "eslint-config-airbnb-base": "13.1.0",
+      "eslint-plugin-import": "2.16.0",
+      "extract-text-webpack-plugin": "3.0.2",
+      "friendly-errors-webpack-plugin": "1.7.0",
+      "install": "0.12.2",
+      "lodash": "4.17.11",
+      "nodemon": "1.18.10",
+      "npm": "6.9.0",
+      "parseurl": "1.3.3",
+      "react-hot-loader": "4.8.0",
+      "rimraf": "2.6.3",
+      "terser-webpack-plugin": "1.3.0",
+      "webpack": "4.29.6",
+      "webpack-dev-middleware": "3.6.1",
+      "webpack-dev-server": "3.2.1",
+      "webpack-livereload-plugin": "2.2.0",
+      "webpack-node-externals": "1.7.2"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rtmyers/MessageApp.git"
+    },
+    "author": "RT Myers",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/rtmyers/MessageApp/issues"
+    },
+    "homepage": "https://github.com/rtmyers/MessageApp#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

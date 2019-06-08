@@ -1,21 +1,33 @@
-const GraphQLObjectType = require('graphql').GraphQLObjectType;
-const GraphQLList = require('graphql').GraphQLList;
-const UserModel = require('./../../models/User.js');
-const userType = require('../types/user').userType;
+import { GraphQLObjectType, GraphQLList, GraphQLSchema } from 'graphql';
+import userType from '../types/user';
+
+const UserModel = require('./../../models/User');
+
+const fields = require('./../mutations');
 
 // User Query
-exports.queryType = new GraphQLObjectType({
-  name: 'Query',
-  fields: () => {
-    return {
-      users: {
-        type: new GraphQLList(userType),
-        resolve: () => {
-          const users = UserModel.find().exec();
-          if(!users) throw new Error('Error');
-          return users;
-        }
-      }
-    }
-  }
+const usersQuery = new GraphQLObjectType({
+	name: 'Query',
+	fields: () => ({
+		users: {
+			type: new GraphQLList(userType),
+			resolve: () => {
+				const users = UserModel.find().exec();
+				if (!users) throw new Error('Error');
+				return users;
+			}
+		}
+	})
 });
+
+const usersMutate = () => GraphQLSchema({
+	name: 'Mutation',
+	mutation: new GraphQLObjectType({
+		fields
+	})
+});
+
+module.exports = [
+	usersQuery,
+	usersMutate
+];

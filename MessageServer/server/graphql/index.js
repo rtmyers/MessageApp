@@ -1,10 +1,11 @@
-const GraphQLSchema = require('graphql').GraphQLSchema;
-const GraphQLObjectType = require('graphql').GraphQLObjectType;
+import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { makeExecutableSchema } from 'graphql-tools';
 
-exports.userSchema = new GraphQLSchema({
-  query: require('./queries/user').queryType,
-  mutation: new GraphQLObjectType({
-    name: 'Mutation',
-    fields: require('./mutations')
-  })
-});
+import typeDefs from './types/user';
+import resolvers from './mutations';
+
+console.log('user here --- ', typeDefs);
+
+const exSchema = makeExecutableSchema({ typeDefs, resolvers });
+
+module.exports = [exSchema];

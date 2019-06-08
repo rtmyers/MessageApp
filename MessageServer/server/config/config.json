@@ -7,5 +7,5 @@
     "name": "MessageServer"
   },
   "port": 5000,
-  "secret": "GuildEducationSecret"
+  "secret": "VangstAppSecret"
 }
